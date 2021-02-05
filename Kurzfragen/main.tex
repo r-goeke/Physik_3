@@ -1,0 +1,203 @@
+\input{header.tex}
+
+\subject{Kurzfragen}
+\title{Alle Antworten Blatt 0 bis Blatt 12}
+\date{%
+}
+
+\begin{document}
+    
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section*{Blatt 0}
+\begin{enumerate}
+    \item \textit{Welche Grenzen hat die Mechanik aus Physik I? Welche Probleme fallen Ihnen ein, die Sie damit nicht exakt analytisch können?} 
+            \begin{enumerate}
+                \item Zwangsbedingungen (Zwei verbundene Teilchen)
+                \item schwierige DGL (Reibung, schwieriges Potential)
+                \item Zu viele Teilchen (3-Körper-Problem)
+                \item Ganz andere Physik (Elektrodynamik, Quantenmechanik, Relativistik)
+            \end{enumerate}
+    \item \textit{Wieso wechseln Physiker gerne in andere Koordinatensysteme? Welche typischen Beispiele fallen Ihnen ein?} \\
+            Um sich das Leben einfacher zu machen.
+            \begin{enumerate}
+                \item Kartesische Koordinaten
+                \item Polarkoordinaten
+                \item Zylinderkoordinaten
+                \item Kugelkoordinaten
+                \item Transliert (zeitabhängig)
+                \item Rotierend (zeitabhängig)
+            \end{enumerate}
+    \item \textit{Ihre Eltern (von denen wir mal annehemen, dass sie keinen Physik-Hintergrund besitzen) haben vereinzelte Meldungen zum LHC und Supersymmetrien aufgeschnappt und fragen jetzt Sie, was überhaupt an Symmetrien in der Physik so toll sein soll. Wie können Sie das Ihren Eltern verständlich erklären?} \\
+            \begin{enumerate}
+                \item Arbeitsaufwand verringern (Beispiel Spiegelsymmetrie: nur die Hälfte muss berechnet werden)
+                \item Prozesse rückverfolgen 
+                \item neue Ansätze (Ausnutzen von Erhaltungsgrößen)
+                \item Symmetrien liefern Erhaltungsgrößen (Noether-Theorem)
+                \item Eigenschaften direkt aus Symmetrien folgern (Quantenmechanik: Pauli-Prinzip, Fermi-Druck, Bose-Einstein-Kondensat)
+            \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Blatt 1}
+\begin{enumerate}
+    \item \textit{Was versteht man unter generalisierten Koordinaten? Welche Vorteile bieten diese?}
+        \begin{enumerate}
+            \item Beschreiben ein System im Einklang mit den Zwangsbedingungen
+            \item Die Wahl ist nicht eindeutig
+            \item können unabhängig voneinder variiert werden
+            \item minimaler Satz an Koordinaten zur vollständigen Beschreibung des Systems
+        \end{enumerate}
+    \item \textit{Wie lautet das d'Alembertsche Prinzip? Was folgt aus diesem für die Freiheitsgrade eines mechanischen Systems?}\\
+        \begin{equation}
+            \sum_{i=1}^N (m_i \vec{\ddot{r_i}} - \vec{F}_{i,\text{ext}}) \partial \vec{r_i}
+        \end{equation}
+        Die Summe der Zwangskräfte verrichten keine virtuelle Arbeit. Es gibt keine Freiheitsgrade in die Richtung von $\vec{F_{i,\text{ext}}}$ .
+    \item \textit{Wie viele Freiheitsgrade hat ein System mit N Teilchen und s Zwangsbedingungen? Wie viele ein starrer Körper? Überlegen Sie sich Beispiele für Systeme mit 1, 2 und 5 Freiheitsgraden.}
+        \begin{enumerate}
+            \item System mit $N$ Teilchen und $s$ Zwangsbedingungen: $f=3N-s$
+            \item starren Körper mit $s$ Zwangsbedingungen: $f=6-s$
+            \item Beispiele: \\ f=1 : Perle auf Draht \\ f=2 : Masse auf Ebene \\ f=5 : Starrer Körper mit einer Zwangsbedingung
+        \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Blatt 2}
+\begin{enumerate}
+    \item \textit{Was beschreibt allgemein die Lagrangefunktion?} \\
+        \begin{equation}
+            \mathcal{L}(q_i, \dot{q}_i, t) = T - V
+        \end{equation}
+    \item \textit{Was sind die Euler-Lagrange-Gleichungen zweiter Art? Welche Vorteile ergeben sich aus dem Lösen dieser Gleichung gegenüber der Newtonschen Mechanik?} \\
+        \begin{equation}
+           0= \partial_t \frac{\partial \mathcal{L}}{\partial \dot{q}_i} - \frac{\partial \mathcal{L}}{\partial q_i}
+        \end{equation}
+        \begin{enumerate}
+            \item Zwangskräfte müssen nicht betrachtet werden
+            \item Keine Vektoren mehr
+            \item Zwangsbedingungen reduzieren direkt die Anzahl der Freiheitsgrade
+            \item Forminvarianz gegenüber Koordinatentrafos
+        \end{enumerate}
+    \item \textit{Was ist eine zyklische Koordinate? Nennen Sie ein mechanisches Beispiel in dem mindestens eine zyklische Koordinate vorkommt.} \\
+        Eine Koordinate $q_i$ ist dann zyklisch, wenn $\mathcal{L}$ nicht von ihr abhängt. Dann ist der zugehörige Impuls 
+        \begin{equation}
+            p_i= \frac{\partial \mathcal{L}}{\partial \dot{q}_i}
+        \end{equation}
+        erhalten.
+    \item \textit{Was ist eine Ähnlichkeitstrafo und wie wird dadurch die Dynamik eines Systems beeinflusst? Geben Sie ein Beispiel für eine Ähnlichkeitstrafo.}\\
+        Für Potentiale, die homogene Funktionen vom Grad $k$ sind (d.h. $V(\alpha q_i)=\alpha^k V(q_i)$), gilt:
+        \begin{gather}
+            \mathcal{L}(\tilde{q}_i, \dot{\tilde{q}}_i, \tilde{t})=\gamma \mathcal{L}(q_i, \dot{q}_i,t) \\
+            \tilde{q}_i=\alpha q_i \\
+            \dot{\tilde{q}}_i= \alpha^\delta t \intertext{mit} \delta=1-\frac{k}{2}
+        \end{gather}
+\end{enumerate}
+
+\newpage
+
+\section*{Blatt 3}
+
+\begin{enumerate}
+    \item \textit{Was ist eine Eichtransformation? Kennen Sie ein Beispiel?} \\
+        \begin{enumerate}
+            \item Symmetrietransformation von Eichfelden
+            \item Ändern physikalische Begebenheiten (Kräfte, Bewegungsgleichungen) nicht
+                \begin{enumerate}
+                    \item global: Transformation überall mit demselben Wert
+                    \item lokal: Eichtransformation ist durch Funktion gegeben und damit abhängig vom Ort oder der Zeit
+                \end{enumerate}
+            \item Beispiel:
+                \begin{enumerate}
+                    \item Elektrodynamik: Vektorpotenial $\vec{A}=\vec{A}$
+                \end{enumerate}
+        \end{enumerate}
+    \item \textit{Was bedeutet der Satz "Die kinetische Energie ist eine quadratische Form."?} \\
+        Quadratische Form allgemein:
+        \begin{equation}
+            T=\sum^n_{k,l} \frac{1}{2} m_i \dot{q}_i \dot{q}_l
+        \end{equation}
+        Ist gegeben, wenn generalisierte Koordinaten nicht explizit zeitabhngig sind. 
+    \item \textit{Wie bestimmen Sie den zu $q_i$ konjugierten Impuls?} \\
+        \begin{equation}
+            p_i= \frac{\partial \mathcal{L}}{\partial \dot{q}_i}
+        \end{equation}
+        Wenn $q_i$ zyklisch ist, dann ist $p_i$ eine Erhaltungsgröße.
+    \item \textit{Welche drei qualitativ unterschiedlichen Bahnkurven gibt es beim Keplerproblem? Welche Energie weisen diese jeweils auf?} \\
+        Lösung des Keplerproblems:
+        \begin{gather}
+            r(\phi)=\frac{p}{1 + \epsilon \cos(\phi)} \\
+            p=\frac{L^2}{G M \mu^2}
+        \end{gather}
+        Bahnkurven und Energien:
+        \begin{align}
+            &E_\text{kin} < E_\text{pot} \to \tilde{E} < 0 
+            \begin{cases}
+                \epsilon=0 \to r=\text{const} \quad \text{Kreis} \\
+                0 < \epsilon < 1 \quad \text{Ellipse}
+            \end{cases} \\
+            &E_\text{kin} > E_\text{pot} \to \tilde{E} > 0 \to \epsilon > 1 \quad \text{Hyperbel} \\
+            &E_\text{kin} = E_\text{pot} \to \tilde{E} = 0  \to \epsilon = 1 \quad \text{Parabel} 
+        \end{align}
+\end{enumerate}
+
+\newpage
+
+\section*{Blatt 4}
+
+\begin{enumerate}
+    \item \textit{Was besagt das Noether-Theorem? Welche Anwedungsbeispiele fallen Ihnen ein?} \\
+        Zu jeder kontinuierlichen Symmetrie gibt es eine Erhaltungsgröße.
+        Ein Beispiel wäre die Eichinvarianz, welche zur LAdungserhaltung führt.
+    \item \textit{Welche \num{10} Erhaltungsgrößen ergeben sich für ein System von N Teilchen, die untereinander wechselwirken können?} \\
+        \begin{table}
+            \centering
+            \begin{tabular}{c c}
+                \toprule 
+                {Kontinuierliche Trafo} & {Erhaltungsgröße} \\
+                \midrule
+                Translation in der Zeit& Energie\\
+                Translation im Raum&Gesamtimpuls \\
+                Rotation im Raum& Drehimpuls\\
+                Galilei-Transformation& Schwerpunktserhaltung\\
+            \end{tabular}
+        \end{table}
+    \item \textit{Zwischen welchen zwei Arten von Randbedingungen für Kreisel können Sie im Allgemeinen unterscheiden? \\ Welche Dynamik vollführt der Kreisel unter den beiden in der vorherigen Aufgabe unterschiedenen Randbedingungen?} \\
+        \begin{enumerate}
+            \item Schwerer Kreisel (Präzession): Es wirkt ein äußeres Drehmoment $\vec{T}=\vec{R} \times \vec{F}_G $, meist konkreter Kreisel mit Auflagepunkt, auf den Schwerkraft wirkt. In der Regel reibungsfrei und symmetrisch ($I_1=I_2$).
+            \item Freier Kreisel (Nutation): Es wirkt kein externes Drehmoment ($\vec{T}=\vec{0}$), meist symmetrisch.  
+        \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Blatt 5}
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
+\newpage
+
+\section*{Blatt 6}
+\begin{enumerate}
+    \item \textit{Wann wird von der Umkehrung des Noether-Theorems gesprochen?} \\
+        \begin{equation*}
+            \{G,H\}=0 \quad \& \quad \partial_t G =0 \implies \text{G ist eine Erhaltungsgröße.} \implies \underbrace{\text{Symmetrietrafo}}_{F_2(q,P)= \sum_k q_k P_k + \delta \epsilon G(q,p)}
+        \end{equation*}
+    \item \textit{Wie lauten die Hamilton-Jacobi-Gleichungen? Wie lautet das allgemeine Vorgehen und worauf reduziert sich das Problem?} \\
+        Kanonische Trafo, so dass $H=0$ gilt. Das bedeutet, dass alle $Q_k, P_k$ zyklisch und erhalten sind. Es sind somit $2f$ Erhaltungsgrößen bekannt. Das Problem reduziert sich somit auf die Bestimmung einer Trafo/Erzeugenden.
+        \begin{equation*}
+            0=H(q_i, \partial_{q_i}, t)+\partial_t S \quad \text{mit} \quad S=F_2(q, P)
+        \end{equation*}
+    \item \textit{In welchem Zusammenhang stehen Punkttransformationen, kanonische Transformationen und Reparametrisierungen? Welcher Formalismus lässt welche Transformationen zu?} \\
+    \item \textit{Was ist Chaos in der Physik? Welche Kriterien müssen erfüllt sein, damit kein chaotisches Verhalten auftritt?} \\
+    \item \textit{Bonus: Was bedeuten Lagrange, Laplace, Legendre und Poisson auf Deutsch?} \\
+\end{enumerate}
+
+\end{document}

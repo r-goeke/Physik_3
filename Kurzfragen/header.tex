@@ -1,0 +1,171 @@
+\documentclass[
+  bibliography=totoc,     % Literatur im Inhaltsverzeichnis
+  captions=tableheading,  % Tabellenüberschriften
+  titlepage=firstiscover, % Titelseite ist Deckblatt
+]{scrartcl}
+
+% Paket float verbessern
+\usepackage{scrhack}
+
+% Warnung, falls nochmal kompiliert werden muss
+\usepackage[aux]{rerunfilecheck}
+
+% unverzichtbare Mathe-Befehle
+\usepackage{amsmath}
+% viele Mathe-Symbole
+\usepackage{amssymb}
+% Erweiterungen für amsmath
+\usepackage{mathtools}
+
+% Fonteinstellungen
+\usepackage{fontspec}
+% Latin Modern Fonts werden automatisch geladen
+% Alternativ zum Beispiel:
+%\setromanfont{Libertinus Serif}
+%\setsansfont{Libertinus Sans}
+%\setmonofont{Libertinus Mono}
+
+% Wenn man andere Schriftarten gesetzt hat,
+% sollte man das Seiten-Layout neu berechnen lassen
+\recalctypearea{}
+
+% deutsche Spracheinstellungen
+\usepackage[ngerman]{babel}
+
+\usepackage[
+  math-style=ISO,    % ┐
+  bold-style=ISO,    % │
+  sans-style=italic, % │ ISO-Standard folgen
+  nabla=upright,     % │
+  partial=upright,   % ┘
+  warnings-off={           % ┐
+    mathtools-colon,       % │ unnötige Warnungen ausschalten
+    mathtools-overbracket, % │
+  },                       % ┘
+]{unicode-math}
+
+% traditionelle Fonts für Mathematik
+\setmathfont{Latin Modern Math}
+% Alternativ zum Beispiel:
+%\setmathfont{Libertinus Math}
+
+%\setmathfont{XITS Math}[range={scr, bfscr}]
+%\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+\setmathfont[range={scr, bfscr}]{XITS Math}
+\setmathfont[range={cal, bfcal}, StylisticSet=1]{XITS Math}
+
+% Zahlen und Einheiten
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % immer Unsicherheit mit \pm
+  per-mode=symbol-or-fraction, % / in inline math, fraction in display math
+]{siunitx}
+
+% chemische Formeln
+\usepackage[
+  version=4,
+  math-greek=default, % ┐ mit unicode-math zusammenarbeiten
+  text-greek=default, % ┘
+]{mhchem}
+
+% richtige Anführungszeichen
+\usepackage[autostyle]{csquotes}
+
+% schöne Brüche im Text
+\usepackage{xfrac}
+
+% Standardplatzierung für Floats einstellen
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+% Floats innerhalb einer Section halten
+\usepackage[
+  section, % Floats innerhalb der Section halten
+  below,   % unterhalb der Section aber auf der selben Seite ist ok
+]{placeins}
+
+% Seite drehen für breite Tabellen: landscape Umgebung
+\usepackage{pdflscape}
+
+% Captions schöner machen.
+\usepackage[
+  labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
+  font=small,          % Schrift etwas kleiner als Dokument
+  width=0.9\textwidth, % maximale Breite einer Caption schmaler
+]{caption}
+% subfigure, subtable, subref
+\usepackage{subcaption}
+
+% Grafiken können eingebunden werden
+\usepackage{graphicx}
+
+% schöne Tabellen
+\usepackage{booktabs}
+
+% Verbesserungen am Schriftbild
+\usepackage{microtype}
+
+% Literaturverzeichnis
+\usepackage[
+  backend=biber,
+]{biblatex}
+
+% Quellendatenbank
+\addbibresource{lit.bib}
+%\addbibresource{programme.bib}
+
+% Hyperlinks im Dokument
+\usepackage[
+  german,
+  unicode,        % Unicode in PDF-Attributen erlauben
+  pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
+  pdfcreator={},  % ┐ PDF-Attribute säubern
+  pdfproducer={}, % ┘
+]{hyperref}
+
+% erweiterte Bookmarks im PDF
+\usepackage{bookmark}
+
+% Trennung von Wörtern mit Strichen
+\usepackage[shortcuts]{extdash}
+
+\usepackage{longtable}
+
+\setlength{\parindent}{0em}
+
+\author{%
+  Ronja Göke\\%
+  \href{mailto:ronja.goeke@tu-dortmund.de}{ronja.goeke@tu-dortmund.de}\\%
+  %Chiara Deponte\\%
+  %\href{mailto:chiara.deponte@tu-dortmund.de}{chiara.deponte@tu-dortmund.de}%
+ }
+\publishers{TU Dortmund – Fakultät Physik}
+
+\makeatletter
+\def\MT@is@composite#1#2\relax{%
+  \ifx\\#2\\\else
+    \expandafter\def\expandafter\MT@char\expandafter{\csname\expandafter
+                    \string\csname\MT@encoding\endcsname
+                    \MT@detokenize@n{#1}-\MT@detokenize@n{#2}\endcsname}%
+    % 3 lines added:
+    \ifx\UnicodeEncodingName\@undefined\else
+      \expandafter\expandafter\expandafter\MT@is@uni@comp\MT@char\iffontchar\else\fi\relax
+    \fi
+    \expandafter\expandafter\expandafter\MT@is@letter\MT@char\relax\relax
+    \ifnum\MT@char@ < \z@
+      \ifMT@xunicode
+        \edef\MT@char{\MT@exp@two@c\MT@strip@prefix\meaning\MT@char>\relax}%
+          \expandafter\MT@exp@two@c\expandafter\MT@is@charx\expandafter
+            \MT@char\MT@charxstring\relax\relax\relax\relax\relax
+      \fi
+    \fi
+  \fi
+}
+% new:
+\def\MT@is@uni@comp#1\iffontchar#2\else#3\fi\relax{%
+  \ifx\\#2\\\else\edef\MT@char{\iffontchar#2\fi}\fi
+}
+\makeatother
+
+\usepackage{longtable}
